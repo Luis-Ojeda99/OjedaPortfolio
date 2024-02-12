@@ -65,12 +65,15 @@ body {
 .titleMessage .heading p {
     color: #fff;
     text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
-    font-weight: 100;
+    font-weight: bolder;
     letter-spacing: 7px;
 }
 
 .titleMessage .heading .main{
-    font-size: 50px;    
+    font-size: 65px;   
+    text-shadow: 6px 6px 10px #1e272e;
+    display: inline;
+
 }
 
 .titleMessage .heading .sub{
@@ -82,7 +85,7 @@ body {
 }
 
 #navigation {
-    background-color: #0984e3;
+    background-color: #3867d6;
     padding: 20px 10px;
     width: 100%;
     z-index: 100;
@@ -116,15 +119,40 @@ body {
     max-width: 100%;
 }
 
+.about p{
+    font-size: larger;
+}
 .skillsSection,
 .contactSection{
-    background-color: #0984e3;
+    background-color: #3867d6;
     color:#fff;
+    padding-bottom: 30px;
 }
 
 .skill{
     text-align: center;
     margin-left: 10px;
+    margin-top: 30px;
+    font-size: large;
+}
+
+.skillsTitle{
+    font-size: 25px;
+    margin-bottom: 10px;
+    margin-top: -60px;
+}
+
+.skillsTitle h2{
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.skill p{
+    margin-top: 25px;
+}
+
+.skill h4{
+    margin-top: 20px;
 }
 
 .chart{
@@ -161,7 +189,7 @@ body {
     position: relative;
     padding:50px 15px 30px;
     text-align: center;
-    border: 2px solid #444;
+    border: 2px solid #4b7bec;;
     border-top: none;
 }
 
@@ -171,7 +199,7 @@ body {
     position: absolute;
     top: 0px;
     width: 30%;
-    border-bottom: 2px solid #444;
+    border-bottom: 2px solid #4b7bec;
 }
 
 .squareInnerContainer:before {
@@ -185,12 +213,12 @@ body {
 .squareContent h2 {
     font-size: 56px;
     margin-bottom: 10px;
-    font-weight: 400;
-    color:#0984e3
+    font-weight: bolder;
+    color:#a5b1c2;
 }
 
 .squareContent h3{
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
     margin:0;
 }
@@ -203,7 +231,11 @@ body {
     position: absolute;
     top: -30px;
     left: 50%;
-    color: #444;
+    color: #4b7bec;
+}
+
+.contactSection {
+    padding-top: 20px;
 }
 
 .contactButton {
@@ -217,7 +249,7 @@ body {
 }
 
 .contactButton:hover { 
-    color: #0984e3;
+    color: #3867d6;
     background-color: #fff;
 }
 
@@ -239,8 +271,8 @@ body {
 }
 
 .filter .current{
-    background-color: #0984e3;
-    border-color: #0984e3;
+    background-color: #3867d6;
+    border-color: #3867d6;
     color: #fff;
 }
 
@@ -298,7 +330,7 @@ body {
 .items a{
     width: 40px;
     height: 40px;
-    background-color: #0984e3;
+    background-color: #3867d6;
     position: relative;
     display: inline-block;
 

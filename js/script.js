@@ -23,9 +23,9 @@ $(document).ready(function() {
 
     var typed = new Typed(".typed", {
         strings: ["Software Developer", "Web Developer", "Systems consultant"],
-        typeSpeed: 70,
+        typeSpeed: 90,
         loop: true,
-        startDelay: 1000,
+        startDelay: 1500,
         showCursor: false
     });
 
