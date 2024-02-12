@@ -31,18 +31,22 @@ $(document).ready(function() {
 
     $('.owl-carousel').owlCarousel({
         loop:true,
+        autoplay: true,
         items: 4,
+        smartSpeed: 800,
+        pagination:false,
+        nav:true,
         responsive:{
             0:{
                 items:1
             },
-            480:{
+            600:{
                 items:2
             },
-            768:{
+            1024:{
                 items:3
             },
-            938:{
+            1366:{
                 items:4
             }
         }
