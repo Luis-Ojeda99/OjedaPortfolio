@@ -29,6 +29,7 @@ body {
     background: url(../img/loader.gif) center center no-repeat;
 }
 
+/* Slides */
 .slides-navigation{
     z-index: 6;
 }
@@ -84,6 +85,7 @@ body {
     padding: 100px 0;
 }
 
+/* Navigation bar */
 #navigation {
     background-color: #3867d6;
     padding: 20px 10px;
@@ -114,7 +116,7 @@ body {
     top: 0;
 }
 
-
+/* About section*/
 .aboutImage{
     max-width: 100%;
 }
@@ -122,6 +124,12 @@ body {
 .about p{
     font-size: larger;
 }
+
+.about h4{
+    font-weight: bolder;
+}
+
+/* Skills section */
 .skillsSection,
 .contactSection{
     background-color: #3867d6;

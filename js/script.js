@@ -29,6 +29,7 @@ $(document).ready(function() {
         showCursor: false
     });
 
+    // Carousel function for the skills section.
     $('.owl-carousel').owlCarousel({
         loop:true,
         autoplay: true,
