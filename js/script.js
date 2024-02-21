@@ -35,7 +35,7 @@ $(document).ready(function() {
         items: 4,
         smartSpeed: 800,
         pagination:false,
-        nav:true,
+        nav:false,
         responsive:{
             0:{
                 items:1

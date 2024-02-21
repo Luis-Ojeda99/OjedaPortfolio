@@ -9,39 +9,46 @@
         <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
+        <link type="image/png" sizes="16x16" rel="icon" href="img/icons/icons8-globe-16.png">
 
         <link rel="stylesheet" type="text/css" href="css/style.css">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
     <body>
-
+        <!-- Loader for when the page loads.-->
         <div class="loader">
             <div class="inner"></div>
         </div>
 
+        <!-- Slides section-->
         <div id="slides">
 
             <div class="overlay"></div>
 
+            <!-- Container of the slides at the start of the page-->
             <div class="slides-container">
               <img src="img/slide1.jpg" alt="">
               <img src="img/slide2.jpg" alt="">
               <img src="img/slide3.jpg" alt="">
             </div>
 
+            <!-- Title message with my name-->
             <div class="titleMessage">
                 <div class="heading">
                     <p class="main">LUIS OJEDA</p>
                     <p class="sub typed"></p>
                 </div>
             </div>
+
+            <!-- Navigation buttons to move throught the slides-->
             <nav class="slides-navigation">
                 <a href="#" class="next"></a>
                 <a href="#" class="prev"></a>
             </nav>
         </div>
 
+        <!-- Navigation bar at top of the page after passing the Slides section-->
         <nav id="navigation" class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Ojeda's Portofolio</a>
@@ -70,7 +77,8 @@
                 </div>
             </div>
           </nav>
-
+        
+        <!-- About me section -->
         <div id="about" class="section">
             <div class="container">
                 <div class="row">
@@ -88,8 +96,8 @@
             </div>
         </div>
 
+        <!-- Skills section -->
         <div id="skills" class="skillsSection section">
-
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center skillsTitle">
@@ -273,11 +281,29 @@
                                     <img src="img/portfolio/thumbnails/bookmark-app-square.png">
                                     
                                     <div class="icons">
-                                        <a href="img/portfolio/bookmark-app.webp" title="View image" class="openButton"  data-fancybox data-caption="Bookmark webiste created using HTML/CSS/JS.">
+                                        <a href="img/portfolio/bookmark-app.webp" title="View image" class="openButton"  data-fancybox data-caption="Bookmark webiste to keep track of your favorites websites. Created using HTML/CSS/JS.">
                                             <i class="fa fa-search"></i>
                                         </a>
 
                                         <a href="https://luis-ojeda99.github.io/bookmarks-app/" target="_blank" class="projectLink">
+                                            <i class="fa fa-link"></i>
+                                        </a>
+                                    </div>
+
+                                    <div class="imageOverlay"></div>
+                                </div>
+                            </li>
+
+                            <li onclick="" class="projects col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                                <div class="item">
+                                    <img src="img/portfolio/thumbnails/calculator-app-square.png">
+                                    
+                                    <div class="icons">
+                                        <a href="img/portfolio/calculator-app.webp" title="View image" class="openButton"  data-fancybox data-caption="calculator  web application with functionaly to perform basic operations of addition, subtraction, multiplication and division. Created using HTML/CSS/JS.">
+                                            <i class="fa fa-search"></i>
+                                        </a>
+
+                                        <a href="https://luis-ojeda99.github.io/calculator/" target="_blank" class="projectLink">
                                             <i class="fa fa-link"></i>
                                         </a>
                                     </div>
