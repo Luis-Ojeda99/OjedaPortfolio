@@ -16,24 +16,21 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
     <body>
-        <!-- Loader for when the page loads.-->
         <div class="loader">
             <div class="inner"></div>
         </div>
 
-        <!-- Slides section-->
+        <!-- Slides -->
         <div id="slides">
 
             <div class="overlay"></div>
 
-            <!-- Container of the slides at the start of the page-->
             <div class="slides-container">
-              <img src="img/slide1.jpg" alt="">
-              <img src="img/slide2.jpg" alt="">
-              <img src="img/slide3.jpg" alt="">
+              <img src="img/slide1.webp" alt="Computer slide">
+              <img src="img/slide2.webp" alt="Computer and notebook slide">
+              <img src="img/slide3.webp" alt="programming slide">
             </div>
 
-            <!-- Title message with my name-->
             <div class="titleMessage">
                 <div class="heading">
                     <p class="main">LUIS OJEDA</p>
@@ -51,7 +48,7 @@
         <!-- Navigation bar at top of the page after passing the Slides section-->
         <nav id="navigation" class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Ojeda's Portofolio</a>
+                <a class="navbar-brand" href="#">Ojeda's Portfolio</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -83,7 +80,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-5">
-                        <img class="aboutImage" src="img/about.jpeg">
+                        <img class="aboutImage" src="img/about.webp">
                     </div>
     
                     <div class="col-md-7 about">
@@ -166,8 +163,8 @@
             </div>
         </div>
 
+        <!-- Stats section-->
         <div id="stats" class="statsSection section">
-
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-6">
@@ -233,6 +230,7 @@
             </div>
         </div>
 
+        <!-- Contact section-->
         <div id="contact" class="contactSection section">
             <div class="col-md-12 text-center">
                 <p class="subHeading">Like what you see?</p>
@@ -241,6 +239,7 @@
             </div>
         </div>
 
+        <!-- Portfolio section-->
         <div id="portfolio" class="section">
             <div class="container">
                 <div class="row">
@@ -257,14 +256,17 @@
                         </ul>
                     </div>
 
+                    <!-- Container for the Portfolio items-->
                     <div class="itemsContainer">
                         <ul class="items">
+
+                            <!-- HOMEnVentory python project-->
                             <li onclick="" class="projects col-xs-6 col-sm-4 col-md-3 col-lg-3">
                                 <div class="item">
-                                    <img src="img/portfolio/thumbnails/python-square.jpg">
+                                    <img src="img/portfolio/thumbnails/python-square.webp" alt="Python logo">
                                     
                                     <div class="icons">
-                                        <a href="img/portfolio/python.jpg" title="View image" class="openButton"  data-fancybox data-caption="Pythong project created using Django framework with a MTV (Model-Template-view) pattern.">
+                                        <a href="img/portfolio/python.webp" title="View image" class="openButton"  data-fancybox data-caption="Python project created using Django framework with a MTV (Model-Template-view) pattern.">
                                             <i class="fa fa-search"></i>
                                         </a>
 
@@ -277,9 +279,10 @@
                                 </div>
                             </li>
 
+                            <!-- Bookmark web project -->
                             <li onclick="" class="projects col-xs-6 col-sm-4 col-md-3 col-lg-3">
                                 <div class="item">
-                                    <img src="img/portfolio/thumbnails/bookmark-app-square.png">
+                                    <img src="img/portfolio/thumbnails/bookmark-app-square.webp" alt="bookmark-app">
                                     
                                     <div class="icons">
                                         <a href="img/portfolio/bookmark-app.webp" title="View image" class="openButton"  data-fancybox data-caption="Bookmark webiste to keep track of your favorites websites. Created using HTML/CSS/JS.">
@@ -295,9 +298,10 @@
                                 </div>
                             </li>
 
+                            <!-- Calculator web project-->
                             <li onclick="" class="projects col-xs-6 col-sm-4 col-md-3 col-lg-3">
                                 <div class="item">
-                                    <img src="img/portfolio/thumbnails/calculator-app-square.png">
+                                    <img src="img/portfolio/thumbnails/calculator-app-square.webp" alt="calculator-app">
                                     
                                     <div class="icons">
                                         <a href="img/portfolio/calculator-app.webp" title="View image" class="openButton"  data-fancybox data-caption="calculator  web application with functionaly to perform basic operations of addition, subtraction, multiplication and division. Created using HTML/CSS/JS.">
@@ -313,9 +317,29 @@
                                 </div>
                             </li>
 
+                            <!--PaintyCraft web project -->
+                            <li onclick="" class="projects col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                                <div class="item">
+                                    <img src="img/portfolio/thumbnails/paintyCraft-square.webp" alt="PaintyCraft">
+                                    
+                                    <div class="icons">
+                                        <a href="img/portfolio/paintyCraft.webp" title="View image" class="openButton"  data-fancybox data-caption="Paint-like web application with basic functionlaties of drawing in a canvas, erasing from it, storing to local Sotrage, uploading form local Storage, and downloading the image.">
+                                            <i class="fa fa-search"></i>
+                                        </a>
+
+                                        <a href="https://luis-ojeda99.github.io/paintyCraft/" target="_blank" class="projectLink">
+                                            <i class="fa fa-link"></i>
+                                        </a>
+                                    </div>
+
+                                    <div class="imageOverlay"></div>
+                                </div>
+                            </li>
+
+                            <!-- PHP published article 1-->
                             <li onclick="" class="articles col-xs-6 col-sm-4 col-md-3 col-lg-3">
                                 <div class="item">
-                                    <img src="img/portfolio/thumbnails/php-post-square.png">
+                                    <img src="img/portfolio/thumbnails/php-post-square.webp" alt="PHP article 1">
                                     
                                     <div class="icons">
                                         <a href="img/portfolio/php-post.webp" title="View image" class="openButton"  data-fancybox data-caption="Article written by me in the webiste Medium about the PHP language and it's importance for web developers.">
@@ -331,9 +355,10 @@
                                 </div>
                             </li>
 
+                            <!-- PHP published article 2-->
                             <li onclick="" class="articles col-xs-6 col-sm-4 col-md-3 col-lg-3">
                                 <div class="item">
-                                    <img src="img/portfolio/thumbnails/php-post2-square.png">
+                                    <img src="img/portfolio/thumbnails/php-post2-square.webp" alt="PHP article 2">
                                     
                                     <div class="icons">
                                         <a href="img/portfolio/php-post2.webp" title="View image" class="openButton"  data-fancybox data-caption="Article written by me in the webiste Medium about what is the PHP language and why you should learn it.">
@@ -349,9 +374,10 @@
                                 </div>
                             </li>
 
+                            <!-- PHP published article 3-->
                             <li onclick="" class="articles col-xs-6 col-sm-4 col-md-3 col-lg-3">
                                 <div class="item">
-                                    <img src="img/portfolio/thumbnails/php-post3-square.png">
+                                    <img src="img/portfolio/thumbnails/php-post3-square.webp" alt="PHP article 3">
                                     
                                     <div class="icons">
                                         <a href="img/portfolio/php-post3.webp" title="View image" class="openButton"  data-fancybox data-caption="Article written by me in the webiste Medium about  creating a web application using PHP.">
@@ -367,9 +393,10 @@
                                 </div>
                             </li>
 
+                            <!-- TicTacToe Java project-->
                             <li onclick="" class="projects col-xs-6 col-sm-4 col-md-3 col-lg-3">
                                 <div class="item">
-                                    <img src="img/portfolio/thumbnails/ticTacToe-java-square.png">
+                                    <img src="img/portfolio/thumbnails/ticTacToe-java-square.webp" alt="TicTacToe created using Java">
                                     
                                     <div class="icons">
                                         <a href="img/portfolio/ticTacToe-java.webp" title="View image" class="openButton"  data-fancybox data-caption="TicTacToe project created using Java.">
@@ -385,9 +412,10 @@
                                 </div>
                             </li>
 
+                            <!-- Github profile -->
                             <li onclick="" class="me col-xs-6 col-sm-4 col-md-3 col-lg-3">
                                 <div class="item">
-                                    <img src="img/portfolio/thumbnails/github-profile-square.png">
+                                    <img src="img/portfolio/thumbnails/github-profile-square.webp" alt="Github profile">
                                     
                                     <div class="icons">
                                         <a href="img/portfolio/github-profile.webp" title="View image" class="openButton"  data-fancybox data-caption="My GitHub profile.">
@@ -403,9 +431,10 @@
                                 </div>
                             </li>
 
+                            <!-- LinkedIn profile-->
                             <li onclick="" class="me col-xs-6 col-sm-4 col-md-3 col-lg-3">
                                 <div class="item">
-                                    <img src="img/portfolio/thumbnails/linkedin-logo-square.png">
+                                    <img src="img/portfolio/thumbnails/linkedin-logo-square.webp" alt="LinkedIn logo">
                                     
                                     <div class="icons">
                                         <a href="img/portfolio/linkedin-logo.webp" title="View image" class="openButton"  data-fancybox data-caption="Link to my Linkedin Profile">
@@ -422,9 +451,10 @@
                                 </div>
                             </li>
 
+                            <!-- Portfolio website project/code-->
                             <li onclick="" class="projects col-xs-6 col-sm-4 col-md-3 col-lg-3">
                                 <div class="item">
-                                    <img src="img/portfolio/thumbnails/portfolio-website-square.png">
+                                    <img src="img/portfolio/thumbnails/portfolio-website-square.webp" alt="Portfolio project">
                                     
                                     <div class="icons">
                                         <a href="img/portfolio/portfolio-website.webp" title="View image" class="openButton"  data-fancybox data-caption="GitHub repository with all the code used for this Porfolio website.">
@@ -445,12 +475,14 @@
             </div>
         </div>
 
+        <!-- Copyright section-->
         <div class="copyrightSection">
             <div class="col-md-12 text-center">
                 <p>&copy; Copyright Luis Ojeda 2024</p>
             </div>
         </div>
 
+        <!-- Scripts -->
         <script src="https://kit.fontawesome.com/ea171f0a9c.js" crossorigin="anonymous"></script>
         <script src="js/jquery.superslides.js"></script>
         <script src="js/jquery.easypiechart.min.js"></script>
