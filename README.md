@@ -1,11 +1,15 @@
-# OjedaPortfolio
-A porfolio website created with HTML/CSS/JS by Luis Ojeda. It shows a section with general information about me, technical skills, stats and a porftolio section showcasing my projects, published articles and my social media.
+# Luis Ojeda Portfolio
 
-Currently hosted on https://luis-ojeda99.github.io/OjedaPortfolio/
+Modern React portfolio website showcasing my skills as a Full Stack Developer.
 
-This porfoltio was created following the instructions provided in the udemy course: https://www.udemy.com/course/portfolio-website/ by Reece Kenney.
+## Built With
+- React 18
+- Tailwind CSS
+- Modern JavaScript (ES6+)
 
-Version 1.1
+## Live Demo
+[https://luis-ojeda99.github.io/OjedaPortfolio](https://luis-ojeda99.github.io/OjedaPortfolio)
 
-Febraury 25, 2024
-
+## Local Development
+```bash
+npm start
