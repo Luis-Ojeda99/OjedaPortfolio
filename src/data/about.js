@@ -5,7 +5,7 @@
 
 export const aboutData = {
   name: "Luis Ojeda",
-  profileImage: "/img/about.webp",
+  profileImage: `${process.env.PUBLIC_URL}/img/about.webp`,
   title: "My name is Luis Ojeda",
   paragraphs: [
     "Greetings! I'm a dedicated Software Development graduate with honors from the Southern Alberta Institute of Technology (SAIT), based in Calgary, Canada. Experienced in utilizing various programming languages and frameworks as a full stack developer working on the design, implementation, and maintenance of applications across diverse platforms.",
