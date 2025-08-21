@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/OjedaPortfolio/static/css/main.6c2f9f8b.css",
+    "main.js": "/OjedaPortfolio/static/js/main.fca13fbf.js",
+    "static/js/453.d6d15bc2.chunk.js": "/OjedaPortfolio/static/js/453.d6d15bc2.chunk.js",
+    "index.html": "/OjedaPortfolio/index.html",
+    "main.6c2f9f8b.css.map": "/OjedaPortfolio/static/css/main.6c2f9f8b.css.map",
+    "main.fca13fbf.js.map": "/OjedaPortfolio/static/js/main.fca13fbf.js.map",
+    "453.d6d15bc2.chunk.js.map": "/OjedaPortfolio/static/js/453.d6d15bc2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6c2f9f8b.css",
+    "static/js/main.fca13fbf.js"
+  ]
+}
