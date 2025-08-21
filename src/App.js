@@ -1,12 +1,14 @@
 import React from 'react';
+import Header from './components/Header';
+import Navigation from './components/Navigation'
+import About from './components/About';
 
 function App() {
   return (
     <div className="App">
-      <div className="bg-blue-500 text-white p-8 text-center">
-        <h1 className="text-4xl font-bold">Luis Ojeda Portfolio</h1>
-        <p className="text-xl mt-4">React + Tailwind CSS!</p>
-      </div>
+      <Navigation />
+      <Header />
+      <About />
     </div>
   );
 }
