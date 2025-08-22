@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/OjedaPortfolio/static/css/main.ec0ce1ef.css",
-    "main.js": "/OjedaPortfolio/static/js/main.c693c22e.js",
+    "main.css": "/OjedaPortfolio/static/css/main.a993c9a0.css",
+    "main.js": "/OjedaPortfolio/static/js/main.17032031.js",
     "static/js/453.d6d15bc2.chunk.js": "/OjedaPortfolio/static/js/453.d6d15bc2.chunk.js",
     "index.html": "/OjedaPortfolio/index.html",
-    "main.ec0ce1ef.css.map": "/OjedaPortfolio/static/css/main.ec0ce1ef.css.map",
-    "main.c693c22e.js.map": "/OjedaPortfolio/static/js/main.c693c22e.js.map",
+    "main.a993c9a0.css.map": "/OjedaPortfolio/static/css/main.a993c9a0.css.map",
+    "main.17032031.js.map": "/OjedaPortfolio/static/js/main.17032031.js.map",
     "453.d6d15bc2.chunk.js.map": "/OjedaPortfolio/static/js/453.d6d15bc2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ec0ce1ef.css",
-    "static/js/main.c693c22e.js"
+    "static/css/main.a993c9a0.css",
+    "static/js/main.17032031.js"
   ]
 }
