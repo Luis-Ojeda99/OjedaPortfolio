@@ -109,7 +109,7 @@ export const portfolioData = [
     image: `${process.env.PUBLIC_URL}/img/portfolio/thumbnails/github-profile-square.webp`,
     description: 'My GitHub profile showcasing all my projects and contributions.',
     shortDescription: 'Check out my code repositories and contributions',
-    demoUrl: 'https://github.com/Luis-Ojeda99',
+    profileUrl: 'https://github.com/Luis-Ojeda99',
     technologies: ['Git', 'Open Source']
   },
   {
@@ -119,7 +119,7 @@ export const portfolioData = [
     image: `${process.env.PUBLIC_URL}/img/portfolio/thumbnails/linkedin-logo-square.webp`,
     description: 'My professional LinkedIn profile.',
     shortDescription: 'Connect with me professionally on LinkedIn',
-    demoUrl: 'https://www.linkedin.com/in/luis-a-ojeda/',
+    profileUrl: 'https://www.linkedin.com/in/luis-a-ojeda/',
     technologies: ['Professional Networking']
   }
 ];

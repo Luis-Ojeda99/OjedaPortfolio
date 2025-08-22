@@ -1,6 +1,6 @@
-// components/Stats.js
 import React, { useState, useEffect, useRef } from "react";
 import { statsData, statsConfig } from "../data/stats";
+import { cardHoverEffect, iconHoverEffect } from "../utils/styles";
 
 /**
  * Individual statistic card with animated counter
@@ -58,10 +58,12 @@ const StatCard = ({ stat, delay = 0 }) => {
   return (
     <div
       ref={ref}
-      className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
+      className={`bg-white rounded-lg p-8 shadow-lg ${cardHoverEffect}`}
     >
       <div className="text-center">
-        <div className="text-4xl mb-4 text-blue-600">{stat.icon}</div>
+        <div className={`text-4xl mb-4 text-blue-600 ${iconHoverEffect}`}>
+          {stat.icon}
+        </div>
         <div className="text-3xl font-bold text-gray-900 mb-2">{count}</div>
         <div className="text-gray-600 font-medium">{stat.label}</div>
       </div>

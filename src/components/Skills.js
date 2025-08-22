@@ -1,6 +1,6 @@
-// components/Skills.js
 import React from "react";
 import { skills } from "../data/skills";
+import { cardHoverEffect, iconHoverEffect } from '../utils/styles';
 
 /**
  * Skills section header component
@@ -22,9 +22,9 @@ const SkillsHeader = () => (
  * @param {Number} index - Index for potential animation delays
  */
 const SkillCard = ({ skill, index }) => (
-  <div className="group bg-gray-50 rounded-lg p-6 hover:bg-blue-50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+  <div className={`group bg-gray-50 rounded-lg p-6 hover:bg-blue-50 ${cardHoverEffect}`}>
     <div className="text-center">
-      <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+      <div className={`text-4xl mb-4 ${iconHoverEffect}`}>
         {skill.icon}
       </div>
       <h3 className="text-xl font-semibold text-gray-900 mb-2">{skill.name}</h3>
@@ -45,7 +45,7 @@ const Skills = () => {
     <section id="skills" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SkillsHeader />
-
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
           {skills.map((skill, index) => (
             <SkillCard key={skill.name} skill={skill} index={index} />

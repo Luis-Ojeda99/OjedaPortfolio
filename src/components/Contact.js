@@ -1,10 +1,10 @@
 // components/Contact.js
 import React from "react";
 import { contactData } from "../data/contact";
-
+import { buttonHoverEffect, iconHoverEffect } from "../utils/styles";
 /**
  * Social links component
- * Displays social media 
+ * Displays social media
  */
 const SocialLinks = () => (
   <div className="flex space-x-6">
@@ -14,7 +14,7 @@ const SocialLinks = () => (
         href={social.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-white hover:text-blue-200 transition-colors p-3"
+        className={`text-white hover:text-blue-200 transition-colors p-3 ${iconHoverEffect}`}
         aria-label={social.label}
       >
         <svg
@@ -35,7 +35,7 @@ const SocialLinks = () => (
 const ContactButton = () => (
   <a
     href={`mailto:${contactData.email}`}
-    className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg"
+    className={`bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 shadow-lg ${buttonHoverEffect}`}
   >
     Let's Have a Conversation
   </a>
