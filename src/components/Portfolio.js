@@ -128,7 +128,6 @@ const PortfolioHeader = ({ activeFilter, onFilterChange }) => (
 /**
  * Main Portfolio Component
  * Displays filterable portfolio grid with projects, articles, and personal links
- * Features hover effects, category filtering, and responsive design
  */
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('all');
