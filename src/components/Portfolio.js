@@ -8,16 +8,27 @@ import { cardHoverEffect, buttonHoverEffect } from "../utils/styles";
  * @param {Object} item - Portfolio item data
  */
 const PortfolioItem = ({ item }) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <div
       className={`group relative bg-white rounded-lg overflow-hidden shadow-lg ${cardHoverEffect}`}
     >
       {/* Project image */}
       <div className="aspect-w-16 aspect-h-9 overflow-hidden">
+        {!imageLoaded && (
+          <div className="w-full h-48 bg-gray-200 animate-pulse flex items-center justify-center">
+            <span className="text-gray-400 text-sm">Loading...</span>
+          </div>
+        )}
         <img
           src={item.image}
           alt={item.title}
-          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+          className={`w-full h-48 object-cover group-hover:scale-105 transition-all duration-300 ${
+            imageLoaded ? "opacity-100" : "opacity-0"
+          }`}
+          onLoad={() => setImageLoaded(true)}
+          onError={() => setImageLoaded(true)} // Show content even if image fails to load
         />
       </div>
 
