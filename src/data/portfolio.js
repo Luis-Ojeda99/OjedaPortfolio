@@ -9,7 +9,7 @@ export const portfolioData = [
     id: 1,
     title: 'HOMEnVentory',
     category: 'projects',
-    image: `${process.env.PUBLIC_URL}/img/portfolio/thumbnails/python-square.webp`,
+    image: `${process.env.PUBLIC_URL}/img/portfolio/thumbnails/HOMEnVentory-square.webp`,
     description: 'Python project created using Django framework with a MTV (Model-Template-View) pattern.',
     shortDescription: 'Django web application for home inventory management',
     githubUrl: 'https://github.com/Luis-Ojeda99/HOMEnVentory',
