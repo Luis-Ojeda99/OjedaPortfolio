@@ -29,6 +29,17 @@ export const portfolioData = [
   },
   {
     id: 3,
+    title: "Jobhunt tracker",
+    category: "projects",
+    image: `${process.env.PUBLIC_URL}/img/portfolio/thumbnails/jobhunt-tracker-square.webp`,
+    description:
+      "A web app built with Node.js, Express, and PostgreSQL to track job applications, update statuses, and monitor progress during the job search.",
+    shortDescription: "Job application tracker built with Node.js, Express, and PostgreSQL",
+    githubUrl: "https://github.com/Luis-Ojeda99/jobhunt-tracker",
+    technologies: ["Node.js", "PostgreSQL", "Express"],
+  },
+  {
+    id: 4,
     title: "Bookmark App",
     category: "projects",
     image: `${process.env.PUBLIC_URL}/img/portfolio/thumbnails/bookmark-app-square.webp`,
@@ -40,7 +51,7 @@ export const portfolioData = [
     technologies: ["HTML", "CSS", "JavaScript"],
   },
   {
-    id: 4,
+    id: 5,
     title: "Calculator App",
     category: "projects",
     image: `${process.env.PUBLIC_URL}/img/portfolio/thumbnails/calculator-app-square.webp`,
@@ -52,7 +63,7 @@ export const portfolioData = [
     technologies: ["HTML", "CSS", "JavaScript"],
   },
   {
-    id: 5,
+    id: 6,
     title: "TicTacToe Java",
     category: "projects",
     image: `${process.env.PUBLIC_URL}/img/portfolio/thumbnails/ticTacToe-java-square.webp`,
@@ -62,7 +73,7 @@ export const portfolioData = [
     technologies: ["Java"],
   },
   {
-    id: 6,
+    id: 7,
     title: "Portfolio Website",
     category: "projects",
     image: `${process.env.PUBLIC_URL}/img/portfolio/thumbnails/portfolio-website-square.webp`,
@@ -75,7 +86,7 @@ export const portfolioData = [
 
   // Articles
   {
-    id: 7,
+    id: 8,
     title: "PHP Importance Article",
     category: "articles",
     image: `${process.env.PUBLIC_URL}/img/portfolio/thumbnails/php-post-square.webp`,
@@ -87,7 +98,7 @@ export const portfolioData = [
     technologies: ["PHP", "Web Development"],
   },
   {
-    id: 8,
+    id: 9,
     title: "What is PHP Article",
     category: "articles",
     image: `${process.env.PUBLIC_URL}/img/portfolio/thumbnails/php-post2-square.webp`,
@@ -99,7 +110,7 @@ export const portfolioData = [
     technologies: ["PHP", "Tutorial"],
   },
   {
-    id: 9,
+    id: 10,
     title: "Creating PHP Web App",
     category: "articles",
     image: `${process.env.PUBLIC_URL}/img/portfolio/thumbnails/php-post3-square.webp`,
@@ -112,7 +123,7 @@ export const portfolioData = [
 
   // About Me / Personal Links
   {
-    id: 10,
+    id: 11,
     title: "GitHub Profile",
     category: "me",
     image: `${process.env.PUBLIC_URL}/img/portfolio/thumbnails/github-profile-square.webp`,
@@ -123,7 +134,7 @@ export const portfolioData = [
     technologies: ["Git", "Open Source"],
   },
   {
-    id: 11,
+    id: 12,
     title: "LinkedIn Profile",
     category: "me",
     image: `${process.env.PUBLIC_URL}/img/portfolio/thumbnails/linkedin-logo-square.webp`,
