@@ -7,22 +7,22 @@ export const statsData = [
   {
     icon: "💻",
     number: 19,
-    label: "Websites made",
+    label: "Sitios web creados",
   },
   {
     icon: "🖥️",
     number: 4,
-    label: "Desktop applications made",
+    label: "Aplicaciones de escritio hechas",
   },
   {
     icon: "⌨️",
     number: 4,
-    label: "Years of experience as IT support",
+    label: "Años de experencia como soporte de TI",
   },
   {
     icon: "📚",
     number: 3,
-    label: "Published articles about Technology",
+    label: "Artículos publicados sobre tecnología",
   },
 ];
 
