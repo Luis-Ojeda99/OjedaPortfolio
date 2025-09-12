@@ -3,7 +3,7 @@
  * Contains personal information, job titles, and slideshow images
  */
 
-export const heroDataEs = {
+export const heroData = {
   name: "LUIS OJEDA",
   roles: [
     'Desarrollador Full Stack', 

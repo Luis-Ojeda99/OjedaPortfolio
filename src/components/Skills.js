@@ -1,5 +1,5 @@
 import React from "react";
-import { skills } from "../data/skills";
+import { skillsData } from "../data/skills";
 import { cardHoverEffect, iconHoverEffect } from '../utils/styles';
 
 /**
@@ -47,7 +47,7 @@ const Skills = () => {
         <SkillsHeader />
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
-          {skills.map((skill, index) => (
+          {skillsData.map((skill, index) => (
             <SkillCard key={skill.name} skill={skill} index={index} />
           ))}
         </div>

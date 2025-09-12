@@ -3,7 +3,7 @@
  * Organized by categories: Core Languages, Frontend Frameworks & Technologies, Backend Frameworks & Runtime, and Database Systems
  */
 
-export const skills = [
+export const skillsData = [
   // Core Languages
   {
     name: "JavaScript",

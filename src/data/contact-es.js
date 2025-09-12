@@ -3,7 +3,7 @@
  * Contains contact information, social links, and messaging
  */
 
-export const contactDataES = {
+export const contactData = {
   subtitle: "¿Te gusta lo que ves?",
   title: "¡Me encantaría saber de ti!",
   email: "luisojeda27180@gmail.com",

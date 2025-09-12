@@ -1,6 +1,6 @@
 // components/Navigation.js
 import React, { useState } from 'react';
-import { navItems, logoText } from '../data/navigation';
+import { navgitationData, logoText } from '../data/navigation';
 
 /**
  * Logo component for the navigation bar
@@ -80,7 +80,7 @@ const Navigation = () => {
           
           {/* Desktop navigation menu */}
           <NavItems 
-            items={navItems} 
+            items={navgitationData} 
             onItemClick={handleNavClick}
             className="hidden md:flex ml-10 items-baseline space-x-8"
           />
@@ -96,7 +96,7 @@ const Navigation = () => {
         {isMenuOpen && (
           <div className="md:hidden">
             <NavItems 
-              items={navItems} 
+              items={navgitationData} 
               onItemClick={handleNavClick}
               className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white flex flex-col"
             />

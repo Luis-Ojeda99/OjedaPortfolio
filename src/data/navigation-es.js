@@ -3,7 +3,7 @@
  * Contains all navigation menu items with their routes and labels
  */
 
-export const navItems = [
+export const navgitationData = [
   { href: "#about", label: " Sobre mí" },
   { href: "#skills", label: "Habilidades" },
   { href: "#stats", label: "Estadísticas" },

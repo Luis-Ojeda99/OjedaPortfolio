@@ -3,7 +3,7 @@
  * Contains personal information, profile image, and professional background
  */
 
-export const aboutDataEs = {
+export const aboutData = {
   name: "Luis Ojeda",
   profileImage: `${process.env.PUBLIC_URL}/img/about.webp`,
   title: "Mi nombre es Luis Ojeda",
