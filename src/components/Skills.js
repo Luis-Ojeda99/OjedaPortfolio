@@ -19,9 +19,8 @@ const SkillsHeader = () => (
  * Individual skill card component
  * Displays a single skill with icon, name, and description
  * @param {Object} skill - Skill object containing name, icon, and description
- * @param {Number} index - Index for potential animation delays
  */
-const SkillCard = ({ skill, index }) => (
+const SkillCard = ({ skill }) => (
   <div className={`group bg-gray-50 rounded-lg p-6 hover:bg-blue-50 ${cardHoverEffect}`}>
     <div className="text-center">
       <div className={`text-4xl mb-4 ${iconHoverEffect}`}>
