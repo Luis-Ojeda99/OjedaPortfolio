@@ -65,7 +65,7 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main navigation header */}
         <div className="flex justify-between items-center h-16">
-          {/* Left side: Logo + Nav Items */}
+          {/* Logo + Nav Items */}
           <div className="flex items-center">
             <NavLogo />
             <NavItems
@@ -75,7 +75,7 @@ const Navigation = () => {
             />
           </div>
 
-          {/* Right side: Language + Mobile Menu */}
+          {/* Language + Mobile Menu */}
           <div className="flex items-center space-x-4">
             {/* Language toggle button */}
             <button className="hidden md:block text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">
