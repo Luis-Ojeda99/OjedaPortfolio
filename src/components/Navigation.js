@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { navgitationData, logoText } from "../data/navigation";
 import { navgitationData as navigationDataEs, logoText as logoTextEs } from "../data/navigation-es";
+import { LanguageContext } from "../utils/LanguageContext";
 
 const NavLogo = ({ logoText }) => (
   <div className="flex-shrink-0">
@@ -49,10 +50,8 @@ const MobileMenuButton = ({ isOpen, onToggle }) => (
  * Includes desktop horizontal menu and mobile hamburger menu
  */
 const Navigation = () => {
-  // State for mobile menu visibility
+  const { language, toggleLanguage } = useContext(LanguageContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const [lang, setLang] = useState("en");
 
   const handleNavClick = (href) => {
     setIsMenuOpen(false);
@@ -63,34 +62,26 @@ const Navigation = () => {
   };
 
   return (
-    // Fixed navigation bar with backdrop blur effect
     <nav className="fixed top-0 left-0 right-0 bg-white bg-opacity-95 backdrop-blur-sm shadow-sm z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main navigation header */}
         <div className="flex justify-between items-center h-16">
-          {/* Logo + Nav Items */}
           <div className="flex items-center">
-            <NavLogo 
-              logoText={lang === "es" ? logoTextEs : logoText}
-            />
+            <NavLogo logoText={language === "es" ? logoTextEs : logoText} />
             <NavItems
-              items={lang === "es" ? navigationDataEs : navgitationData}
+              items={language === "es" ? navigationDataEs : navgitationData}
               onItemClick={handleNavClick}
               className="hidden md:flex ml-10 space-x-8"
             />
           </div>
 
-          {/* Language + Mobile Menu */}
           <div className="flex items-center space-x-4">
-            {/* Language toggle button */}
             <button
-              onClick={() => setLang(lang === "en" ? "es" : "en")}
+              onClick={toggleLanguage}
               className="hidden md:block text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium"
             >
-              {lang === "en" ? "ES" : "EN"}
+              {language === "en" ? "ES" : "EN"}
             </button>
 
-            {/* Mobile menu toggle button */}
             <MobileMenuButton
               isOpen={isMenuOpen}
               onToggle={() => setIsMenuOpen(!isMenuOpen)}
@@ -98,22 +89,20 @@ const Navigation = () => {
           </div>
         </div>
 
-        {/* Mobile navigation menu (shown when hamburger is clicked) */}
         {isMenuOpen && (
           <div className="md:hidden">
             <NavItems
-              items={navgitationData}
+              items={language === "es" ? navigationDataEs : navgitationData}
               onItemClick={handleNavClick}
               className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white flex flex-col"
             />
 
-            {/* Language toggle in mobile menu */}
             <div className="px-2 pb-3">
               <button
-                onClick={() => setLang(lang === "en" ? "es" : "en")}
+                onClick={toggleLanguage}
                 className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium w-full text-left"
               >
-                {lang === "en" ? "ES" : "EN"}
+                {language === "en" ? "ES" : "EN"}
               </button>
             </div>
           </div>
