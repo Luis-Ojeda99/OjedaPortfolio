@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { navgitationData, logoText } from "../data/navigation";
+import { navgitationData as navigationDataEs, logoText as logoTextEs } from "../data/navigation-es";
 
-const NavLogo = () => (
+const NavLogo = ({ logoText }) => (
   <div className="flex-shrink-0">
     <span className="text-xl font-bold text-gray-800">{logoText}</span>
   </div>
@@ -51,6 +52,8 @@ const Navigation = () => {
   // State for mobile menu visibility
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const [lang, setLang] = useState("en");
+
   const handleNavClick = (href) => {
     setIsMenuOpen(false);
     const element = document.querySelector(href);
@@ -67,9 +70,11 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo + Nav Items */}
           <div className="flex items-center">
-            <NavLogo />
+            <NavLogo 
+              logoText={lang === "es" ? logoTextEs : logoText}
+            />
             <NavItems
-              items={navgitationData}
+              items={lang === "es" ? navigationDataEs : navgitationData}
               onItemClick={handleNavClick}
               className="hidden md:flex ml-10 space-x-8"
             />
@@ -78,8 +83,11 @@ const Navigation = () => {
           {/* Language + Mobile Menu */}
           <div className="flex items-center space-x-4">
             {/* Language toggle button */}
-            <button className="hidden md:block text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">
-              ES
+            <button
+              onClick={() => setLang(lang === "en" ? "es" : "en")}
+              className="hidden md:block text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium"
+            >
+              {lang === "en" ? "ES" : "EN"}
             </button>
 
             {/* Mobile menu toggle button */}
@@ -98,11 +106,14 @@ const Navigation = () => {
               onItemClick={handleNavClick}
               className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white flex flex-col"
             />
-            
+
             {/* Language toggle in mobile menu */}
             <div className="px-2 pb-3">
-              <button className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium w-full text-left">
-                ES
+              <button
+                onClick={() => setLang(lang === "en" ? "es" : "en")}
+                className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium w-full text-left"
+              >
+                {lang === "en" ? "ES" : "EN"}
               </button>
             </div>
           </div>
