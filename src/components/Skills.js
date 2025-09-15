@@ -1,19 +1,27 @@
-import React from "react";
-import { skillsData } from "../data/skills";
+import React, { useContext } from "react";
+import { skillsData, skillsText } from "../data/skills";
+import {skillsData as skillsDataEs, skillsText as skillsTextEs} from "../data/skills-es"
 import { cardHoverEffect, iconHoverEffect } from '../utils/styles';
+import { LanguageContext } from "../utils/LanguageContext";
 
 /**
  * Skills section header component
  * Contains the main heading and description
  */
-const SkillsHeader = () => (
-  <div className="text-center mb-16">
-    <h2 className="text-4xl font-bold text-gray-900 mb-4">Technical Skills</h2>
-    <p className="text-lg text-gray-600 leading-relaxed">
-      Technologies and frameworks I work with to build modern applications
-    </p>
-  </div>
-);
+const SkillsHeader = () => {
+  const { language } = useContext(LanguageContext);
+  
+  return (
+    <div className="text-center mb-16">
+      <h2 className="text-4xl font-bold text-gray-900 mb-4">
+        {language === 'es' ? skillsTextEs.title : skillsText.title}
+      </h2>
+      <p className="text-lg text-gray-600 leading-relaxed">
+        {language === 'es' ? skillsTextEs.subtitle : skillsText.subtitle}
+      </p>
+    </div>
+  );
+};
 
 /**
  * Individual skill card component
@@ -40,13 +48,14 @@ const SkillCard = ({ skill }) => (
  * Organized by categories: Core Languages, Frontend Frameworks & Technologies, Backend Frameworks & Runtime, and Database Systems
  */
 const Skills = () => {
+  const { language} = useContext(LanguageContext);
   return (
     <section id="skills" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SkillsHeader />
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
-          {skillsData.map((skill, index) => (
+          {(language === 'es' ? skillsDataEs : skillsData).map((skill, index) => (
             <SkillCard key={skill.name} skill={skill} index={index} />
           ))}
         </div>

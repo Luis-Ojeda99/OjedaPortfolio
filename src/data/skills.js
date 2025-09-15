@@ -3,6 +3,11 @@
  * Organized by categories: Core Languages, Frontend Frameworks & Technologies, Backend Frameworks & Runtime, and Database Systems
  */
 
+export const skillsText = {
+  title: "Technical Skills",
+  subtitle: "Technologies and frameworks I work with to build modern applications"
+};
+
 export const skillsData = [
   // Core Languages
   {
