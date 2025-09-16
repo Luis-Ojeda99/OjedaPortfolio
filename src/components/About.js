@@ -1,42 +1,53 @@
-// components/About.js
-import React from 'react';
+import React, { useContext } from 'react';
 import { aboutData } from '../data/about';
+import { aboutData as aboutDataEs } from '../data/about-es';
+import { LanguageContext } from '../utils/LanguageContext';
 
 /**
  * Profile image component
  * Displays the main profile photo with styling
  */
-const ProfileImage = () => (
-  <div className="order-2 lg:order-1">
-    <div className="w-full h-[30rem] rounded-lg overflow-hidden shadow-lg">
-      <img
-        src={aboutData.profileImage}
-        alt={aboutData.name}
-        className="w-full h-full object-cover"
-      />
+const ProfileImage = () => {
+  const { language } = useContext(LanguageContext);
+  const currentData = language === 'es' ? aboutDataEs : aboutData;
+  
+  return (
+    <div className="order-2 lg:order-1">
+      <div className="w-full h-[30rem] rounded-lg overflow-hidden shadow-lg">
+        <img
+          src={currentData.profileImage}
+          alt={currentData.name}
+          className="w-full h-full object-cover"
+        />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 /**
  * About content component
  * Contains the main text content about professional background
  */
-const AboutContent = () => (
-  <div className="order-1 lg:order-2">
-    <h2 className="text-4xl font-bold text-gray-900 mb-6">
-      {aboutData.title}
-    </h2>
-    
-    <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
-      {aboutData.paragraphs.map((paragraph, index) => (
-        <p key={index}>
-          {paragraph}
-        </p>
-      ))}
+const AboutContent = () => {
+  const { language } = useContext(LanguageContext);
+  const currentData = language === 'es' ? aboutDataEs : aboutData;
+  
+  return (
+    <div className="order-1 lg:order-2">
+      <h2 className="text-4xl font-bold text-gray-900 mb-6">
+        {currentData.title}
+      </h2>
+      
+      <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
+        {currentData.paragraphs.map((paragraph, index) => (
+          <p key={index}>
+            {paragraph}
+          </p>
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 /**
  * Main About Component
