@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { portfolioData, portfolioFilters } from "../data/portfolio";
+import { portfolioData as portfolioDataEs, portfolioFilters as portfolioFiltersEs} from "../data/portfolio-es";
 import { cardHoverEffect, buttonHoverEffect } from "../utils/styles";
+import { LanguageContext } from "../utils/LanguageContext";
 
 /**
  * Individual portfolio item component
@@ -28,7 +30,7 @@ const PortfolioItem = ({ item }) => {
             imageLoaded ? "opacity-100" : "opacity-0"
           }`}
           onLoad={() => setImageLoaded(true)}
-          onError={() => setImageLoaded(true)} // Show content even if image fails to load
+          onError={() => setImageLoaded(true)}
         />
       </div>
 
@@ -47,7 +49,7 @@ const PortfolioItem = ({ item }) => {
                 rel="noopener noreferrer"
                 className={`bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-sm transition-colors ${buttonHoverEffect}`}
               >
-                View Demo
+                {item.demoText || "View Demo"}
               </a>
             )}
             {item.profileUrl && (
@@ -57,7 +59,7 @@ const PortfolioItem = ({ item }) => {
                 rel="noopener noreferrer"
                 className={`bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded text-sm transition-colors ${buttonHoverEffect}`}
               >
-                Visit Profile
+                {item.profileText || "Visit Profile"}
               </a>
             )}
             {item.githubUrl && (
@@ -77,7 +79,7 @@ const PortfolioItem = ({ item }) => {
                 rel="noopener noreferrer"
                 className={`bg-green-600 hover:bg-green-700 px-4 py-2 rounded text-sm transition-colors ${buttonHoverEffect}`}
               >
-                Read Article
+                {item.articleText || "Read Article"}
               </a>
             )}
           </div>
@@ -102,7 +104,8 @@ const PortfolioItem = ({ item }) => {
                 : "bg-purple-100 text-purple-800"
             }`}
           >
-            {item.category.charAt(0).toUpperCase() + item.category.slice(1)}
+            {item.categoryLabel ||
+              item.category.charAt(0).toUpperCase() + item.category.slice(1)}
           </span>
 
           {/* Technologies used (if available) */}
@@ -121,53 +124,67 @@ const PortfolioItem = ({ item }) => {
 /**
  * Portfolio filter buttons component
  * Allows filtering portfolio items by category
- * @param {String} activeFilter - Currently active filter
- * @param {Function} onFilterChange - Function to handle filter changes
  */
-const PortfolioFilters = ({ activeFilter, onFilterChange }) => (
-  <div className="flex flex-wrap justify-center gap-4 mb-8">
-    {portfolioFilters.map((filter) => (
-      <button
-        key={filter.key}
-        onClick={() => onFilterChange(filter.key)}
-        className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
-          activeFilter === filter.key
-            ? "bg-blue-600 text-white"
-            : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-        }`}
-      >
-        {filter.label}
-      </button>
-    ))}
-  </div>
-);
+const PortfolioFilters = ({ activeFilter, onFilterChange }) => {
+  const { language } = useContext(LanguageContext);
+  const currentFilters =
+    language === "es" ? portfolioFiltersEs : portfolioFilters;
+
+  return (
+    <div className="flex flex-wrap justify-center gap-4 mb-8">
+      {currentFilters.map((filter) => (
+        <button
+          key={filter.key}
+          onClick={() => onFilterChange(filter.key)}
+          className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
+            activeFilter === filter.key
+              ? "bg-blue-600 text-white"
+              : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+          }`}
+        >
+          {filter.label}
+        </button>
+      ))}
+    </div>
+  );
+};
 
 /**
  * Portfolio section header component
  * Title and filter buttons for the portfolio section
  */
-const PortfolioHeader = ({ activeFilter, onFilterChange }) => (
-  <div className="text-center mb-16">
-    <h2 className="text-4xl font-bold text-gray-900 mb-8">Portfolio</h2>
-    <PortfolioFilters
-      activeFilter={activeFilter}
-      onFilterChange={onFilterChange}
-    />
-  </div>
-);
+const PortfolioHeader = ({ activeFilter, onFilterChange }) => {
+  const { language } = useContext(LanguageContext);
+
+  return (
+    <div className="text-center mb-16">
+      <h2 className="text-4xl font-bold text-gray-900 mb-8">
+        {language === "es" ? "Portafolio" : "Portfolio"}
+      </h2>
+      <PortfolioFilters
+        activeFilter={activeFilter}
+        onFilterChange={onFilterChange}
+      />
+    </div>
+  );
+};
 
 /**
  * Main Portfolio Component
  * Displays filterable portfolio grid with projects, articles, and personal links
  */
 const Portfolio = () => {
+  const { language } = useContext(LanguageContext);
   const [activeFilter, setActiveFilter] = useState("all");
+
+  // Get current language data
+  const currentData = language === "es" ? portfolioDataEs : portfolioData;
 
   // Filter portfolio items based on active filter
   const filteredItems =
     activeFilter === "all"
-      ? portfolioData
-      : portfolioData.filter((item) => item.category === activeFilter);
+      ? currentData
+      : currentData.filter((item) => item.category === activeFilter);
 
   return (
     <section id="portfolio" className="py-20 bg-white">
@@ -189,7 +206,9 @@ const Portfolio = () => {
         {filteredItems.length === 0 && (
           <div className="text-center py-12">
             <p className="text-gray-500 text-lg">
-              No items found for this category.
+              {language === "es"
+                ? "No se encontraron elementos para esta categoría."
+                : "No items found for this category."}
             </p>
           </div>
         )}
