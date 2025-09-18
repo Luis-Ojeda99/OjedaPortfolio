@@ -1,35 +1,42 @@
 // components/Header.js
-import React, { useState, useEffect } from 'react';
-import { heroData, heroConfig } from '../data/hero';
+import React, { useState, useEffect, useContext } from "react";
+import { heroData, heroConfig } from "../data/hero";
+import {
+  heroData as heroDataEs,
+  heroConfig as heroConfigEs,
+} from "../data/hero-es";
+import { LanguageContext } from "../utils/LanguageContext";
 
 /**
  * Slide navigation dots component
  * Allows users to manually navigate between slides
  */
-const SlideDots = ({ slides, currentSlide, onSlideChange }) => (
-  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-    <div className="flex space-x-2">
-      {slides.map((_, index) => (
-        <button
-          key={index}
-          onClick={() => onSlideChange(index)}
-          className={`w-3 h-3 rounded-full transition-all ${
-            index === currentSlide ? 'bg-white' : 'bg-white bg-opacity-50'
-          }`}
-          aria-label={`Go to slide ${index + 1}`}
-        />
-      ))}
+const SlideDots = ({ slides, currentSlide, onSlideChange }) => {
+  return (
+    <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+      <div className="flex space-x-2">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => onSlideChange(index)}
+            className={`w-3 h-3 rounded-full transition-all ${
+              index === currentSlide ? "bg-white" : "bg-white bg-opacity-50"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 /**
  * Typewriter text component
  * Displays animated typing effect for job titles
  */
-const TypewriterText = ({ text }) => (
+const TypewriterText = ({ displayText }) => (
   <p className="text-2xl md:text-3xl font-light min-h-[40px]">
-    {text}
+    {displayText}
     <span className="animate-pulse">|</span>
   </p>
 );
@@ -38,16 +45,21 @@ const TypewriterText = ({ text }) => (
  * Hero content component
  * Main text content overlaid on the slideshow
  */
-const HeroContent = ({ displayText }) => (
-  <div className="relative z-10 flex items-center justify-center h-full text-white text-center">
-    <div>
-      <h1 className="text-6xl md:text-8xl font-bold mb-4 tracking-wider">
-        {heroData.name}
-      </h1>
-      <TypewriterText text={displayText} />
+const HeroContent = ({ displayText }) => {
+  const { language } = useContext(LanguageContext);
+  const currentData = language === "es" ? heroDataEs : heroData;
+
+  return (
+    <div className="relative z-10 flex items-center justify-center h-full text-white text-center">
+      <div>
+        <h1 className="text-6xl md:text-8xl font-bold mb-4 tracking-wider">
+          {currentData.name}
+        </h1>
+        <TypewriterText displayText={displayText} />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 /**
  * Background slideshow component
@@ -59,7 +71,7 @@ const BackgroundSlideshow = ({ slides, currentSlide }) => (
       <div
         key={index}
         className={`absolute inset-0 transition-opacity duration-1000 ${
-          index === currentSlide ? 'opacity-100' : 'opacity-0'
+          index === currentSlide ? "opacity-100" : "opacity-0"
         }`}
       >
         <img
@@ -79,28 +91,33 @@ const BackgroundSlideshow = ({ slides, currentSlide }) => (
  * Full-screen hero section with slideshow, typewriter effect, and navigation
  */
 const Header = () => {
+  const { language } = useContext(LanguageContext);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [displayText, setDisplayText] = useState('');
-  
+  const [displayText, setDisplayText] = useState("");
+
+  // Get current language data
+  const currentData = language === "es" ? heroDataEs : heroData;
+  const currentConfig = language === "es" ? heroConfigEs : heroConfig;
+
   /**
    * Auto-advance slideshow effect
    */
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroData.slides.length);
-    }, heroConfig.slideInterval);
-    
+      setCurrentSlide((prev) => (prev + 1) % currentData.slides.length);
+    }, currentConfig.slideInterval);
+
     return () => clearInterval(interval);
-  }, []);
-  
+  }, [currentData.slides.length, currentConfig.slideInterval]);
+
   /**
    * Typewriter effect for job titles
    */
   useEffect(() => {
-    let currentRole = heroData.roles[currentSlide];
+    let currentRole = currentData.roles[currentSlide];
     let index = 0;
-    setDisplayText('');
-    
+    setDisplayText("");
+
     const typeInterval = setInterval(() => {
       if (index <= currentRole.length) {
         setDisplayText(currentRole.slice(0, index));
@@ -108,10 +125,10 @@ const Header = () => {
       } else {
         clearInterval(typeInterval);
       }
-    }, heroConfig.typewriterSpeed);
-    
+    }, currentConfig.typewriterSpeed);
+
     return () => clearInterval(typeInterval);
-  }, [currentSlide]);
+  }, [currentSlide, currentData.roles, currentConfig.typewriterSpeed]);
 
   /**
    * Manual slide change handler
@@ -122,12 +139,15 @@ const Header = () => {
 
   return (
     <header className="relative h-screen overflow-hidden">
-      <BackgroundSlideshow slides={heroData.slides} currentSlide={currentSlide} />
+      <BackgroundSlideshow
+        slides={currentData.slides}
+        currentSlide={currentSlide}
+      />
       <HeroContent displayText={displayText} />
-      <SlideDots 
-        slides={heroData.slides} 
-        currentSlide={currentSlide} 
-        onSlideChange={handleSlideChange} 
+      <SlideDots
+        slides={currentData.slides}
+        currentSlide={currentSlide}
+        onSlideChange={handleSlideChange}
       />
     </header>
   );
