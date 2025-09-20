@@ -1,6 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
-import { statsData, statsConfig } from "../data/stats";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { cardHoverEffect, iconHoverEffect } from "../utils/styles";
+import { statsData, statsConfig } from "../data/stats";
+import {
+  statsData as statsDataEs,
+  statsConfig as statsConfigEs,
+} from "../data/stats-es";
+import { LanguageContext } from "../utils/LanguageContext";
 
 /**
  * Individual statistic card with animated counter
@@ -9,9 +14,13 @@ import { cardHoverEffect, iconHoverEffect } from "../utils/styles";
  * @param {Number} delay - Animation delay in milliseconds
  */
 const StatCard = ({ stat, delay = 0 }) => {
+  const { language } = useContext(LanguageContext);
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef();
+
+  // Get current config based on language
+  const currentConfig = language === 'es' ? statsConfigEs : statsConfig;
 
   // Intersection Observer to detect when card enters viewport
   useEffect(() => {
@@ -35,7 +44,7 @@ const StatCard = ({ stat, delay = 0 }) => {
   useEffect(() => {
     if (isVisible) {
       const timer = setTimeout(() => {
-        const increment = stat.number / statsConfig.animationSteps;
+        const increment = stat.number / currentConfig.animationSteps;
         let current = 0;
 
         const counter = setInterval(() => {
@@ -46,14 +55,14 @@ const StatCard = ({ stat, delay = 0 }) => {
           } else {
             setCount(Math.floor(current));
           }
-        }, statsConfig.animationDuration / statsConfig.animationSteps);
+        }, currentConfig.animationDuration / currentConfig.animationSteps);
 
         return () => clearInterval(counter);
       }, delay);
 
       return () => clearTimeout(timer);
     }
-  }, [isVisible, stat.number, delay]);
+  }, [isVisible, stat.number, delay, currentConfig]);
 
   return (
     <div
@@ -77,15 +86,21 @@ const StatCard = ({ stat, delay = 0 }) => {
  * Statistics animate when they come into view using Intersection Observer
  */
 const Stats = () => {
+  const { language } = useContext(LanguageContext);
+  
+  // Get current data and config based on language
+  const currentData = language === 'es' ? statsDataEs : statsData;
+  const currentConfig = language === 'es' ? statsConfigEs : statsConfig;
+
   return (
     <section id="stats" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {statsData.map((stat, index) => (
+          {currentData.map((stat, index) => (
             <StatCard
               key={stat.label}
               stat={stat}
-              delay={index * statsConfig.staggerDelay}
+              delay={index * currentConfig.staggerDelay}
             />
           ))}
         </div>
