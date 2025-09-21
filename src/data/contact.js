@@ -7,6 +7,7 @@ export const contactData = {
   subtitle: "Like what you see?",
   title: "I'd love to hear from you!",
   email: "luisojeda27180@gmail.com",
+  buttonText: "Let's Have a Conversation", 
   location: {
     city: "Calgary",
     province: "Alberta", 
