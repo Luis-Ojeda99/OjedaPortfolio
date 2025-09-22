@@ -6,7 +6,7 @@
 export const statsData = [
   {
     icon: "💻",
-    number: 19,
+    number: 21,
     label: "Websites made",
   },
   {
