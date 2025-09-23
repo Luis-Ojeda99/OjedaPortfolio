@@ -26,6 +26,7 @@ const PortfolioItem = ({ item }) => {
         <img
           src={item.image}
           alt={item.title}
+          loading="lazy"
           className={`w-full h-48 object-cover group-hover:scale-105 transition-all duration-300 ${
             imageLoaded ? "opacity-100" : "opacity-0"
           }`}
