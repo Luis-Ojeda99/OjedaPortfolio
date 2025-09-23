@@ -3,10 +3,18 @@ import React, { createContext, useState } from "react";
 export const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState("en");
+  // Initialize from localStorage, fallback to 'en' if nothing stored
+  const [language, setLanguage] = useState(() => {
+    return localStorage.getItem("preferredLanguage") || "en";
+  });
 
   const toggleLanguage = () => {
-    setLanguage((prev) => (prev === "en" ? "es" : "en"));
+    setLanguage((prev) => {
+      const newLang = prev === "en" ? "es" : "en";
+      // Save to localStorage whenever language changes
+      localStorage.setItem("preferredLanguage", newLang);
+      return newLang;
+    });
   };
 
   return (
