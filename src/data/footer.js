@@ -1,6 +1,7 @@
 /**
  * Footer data for the portfolio
  * Contains copyright information and additional social links
+ * No language context needed - footer content is language-agnostic (proper names and links only)
  */
 
 export const footerData = {
