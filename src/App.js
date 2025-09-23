@@ -7,6 +7,7 @@ import Stats from "./components/Stats";
 import Portfolio from "./components/Portfolio";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 import { LanguageProvider } from "./utils/LanguageContext";
 
 function App() {
@@ -21,6 +22,8 @@ function App() {
         <Portfolio />
         <Contact />
         <Footer />
+        <ScrollToTop />
+
       </LanguageProvider>
     </div>
   );
