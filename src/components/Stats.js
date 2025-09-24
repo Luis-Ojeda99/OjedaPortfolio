@@ -20,7 +20,7 @@ const StatCard = ({ stat, delay = 0 }) => {
   const ref = useRef();
 
   // Get current config based on language
-  const currentConfig = language === 'es' ? statsConfigEs : statsConfig;
+  const currentConfig = language === "es" ? statsConfigEs : statsConfig;
 
   // Intersection Observer to detect when card enters viewport
   useEffect(() => {
@@ -73,7 +73,9 @@ const StatCard = ({ stat, delay = 0 }) => {
         <div className={`text-4xl mb-4 text-blue-600 ${iconHoverEffect}`}>
           {stat.icon}
         </div>
-        <div className="text-3xl font-bold text-gray-900 mb-2">{count}</div>
+        <div className="text-3xl font-bold text-gray-900 mb-2">
+          {count || stat.number}
+        </div>
         <div className="text-gray-600 font-medium">{stat.label}</div>
       </div>
     </div>
@@ -87,10 +89,10 @@ const StatCard = ({ stat, delay = 0 }) => {
  */
 const Stats = () => {
   const { language } = useContext(LanguageContext);
-  
+
   // Get current data and config based on language
-  const currentData = language === 'es' ? statsDataEs : statsData;
-  const currentConfig = language === 'es' ? statsConfigEs : statsConfig;
+  const currentData = language === "es" ? statsDataEs : statsData;
+  const currentConfig = language === "es" ? statsConfigEs : statsConfig;
 
   return (
     <section id="stats" className="py-20 bg-gray-50">
