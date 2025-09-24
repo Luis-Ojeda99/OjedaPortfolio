@@ -1,6 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { navgitationData, logoText } from "../data/navigation";
-import { navgitationData as navigationDataEs, logoText as logoTextEs } from "../data/navigation-es";
+import {
+  navgitationData as navigationDataEs,
+  logoText as logoTextEs,
+} from "../data/navigation-es";
 import { LanguageContext } from "../utils/LanguageContext";
 
 const NavLogo = ({ logoText }) => (
@@ -9,13 +12,17 @@ const NavLogo = ({ logoText }) => (
   </div>
 );
 
-const NavItems = ({ items, onItemClick, className = "" }) => (
+const NavItems = ({ items, onItemClick, activeSection, className = "" }) => (
   <div className={className}>
     {items.map((item) => (
       <button
         key={item.href}
         onClick={() => onItemClick(item.href)}
-        className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
+        className={`px-3 py-2 text-sm font-medium transition-colors ${
+          activeSection === item.href.substring(1)
+            ? "text-blue-600 font-bold"
+            : "text-gray-700 hover:text-blue-600"
+        }`}
       >
         {item.label}
       </button>
@@ -52,6 +59,41 @@ const MobileMenuButton = ({ isOpen, onToggle }) => (
 const Navigation = () => {
   const { language, toggleLanguage } = useContext(LanguageContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["about", "skills", "stats", "portfolio", "contact"];
+      const scrollPosition = window.scrollY + 100;
+
+      // Check if we're at the bottom of the page
+      const isAtBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 10;
+
+      // If at bottom, assume contact section is active
+      if (isAtBottom) {
+        setActiveSection("contact");
+        return;
+      }
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Call once to set initial state
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleNavClick = (href) => {
     setIsMenuOpen(false);
@@ -70,6 +112,7 @@ const Navigation = () => {
             <NavItems
               items={language === "es" ? navigationDataEs : navgitationData}
               onItemClick={handleNavClick}
+              activeSection={activeSection}
               className="hidden md:flex ml-10 space-x-8"
             />
           </div>
@@ -94,6 +137,7 @@ const Navigation = () => {
             <NavItems
               items={language === "es" ? navigationDataEs : navgitationData}
               onItemClick={handleNavClick}
+              activeSection={activeSection}
               className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white flex flex-col"
             />
 
@@ -111,5 +155,4 @@ const Navigation = () => {
     </nav>
   );
 };
-
 export default Navigation;
