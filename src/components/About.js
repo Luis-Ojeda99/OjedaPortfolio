@@ -13,11 +13,11 @@ const ProfileImage = () => {
   
   return (
     <div className="order-2 lg:order-1">
-      <div className="w-full h-[30rem] rounded-lg overflow-hidden shadow-lg">
+      <div className="w-full h-[30rem] rounded-lg overflow-hidden shadow-lg group cursor-pointer">
         <img
           src={currentData.profileImage}
           alt={currentData.name}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
       </div>
     </div>
