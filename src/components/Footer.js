@@ -33,6 +33,24 @@ const Copyright = () => (
 );
 
 /**
+ * Back to top link component
+ */
+const BackToTop = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return (
+    <button
+      onClick={scrollToTop}
+      className="text-gray-400 hover:text-white transition-colors mb-4"
+    >
+      ↑ Back to top
+    </button>
+  );
+};
+
+/**
  * Main Footer Component
  * Simple footer with copyright and social links
  */
@@ -41,6 +59,7 @@ const Footer = () => {
     <footer className="bg-gray-900 text-white py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
+          <BackToTop />
           <Copyright />
           <FooterSocialLinks />
         </div>
