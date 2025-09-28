@@ -154,14 +154,21 @@ const PortfolioFilters = ({ activeFilter, onFilterChange }) => {
  * Portfolio section header component
  * Title and filter buttons for the portfolio section
  */
-const PortfolioHeader = ({ activeFilter, onFilterChange }) => {
+const PortfolioHeader = ({ activeFilter, onFilterChange, itemCount }) => {
   const { language } = useContext(LanguageContext);
 
   return (
     <div className="text-center mb-16">
-      <h2 className="text-4xl font-bold text-gray-900 mb-8">
+      <h2 className="text-4xl font-bold text-gray-900 mb-2">
         {language === "es" ? "Portafolio" : "Portfolio"}
       </h2>
+      {activeFilter !== "all" && itemCount > 0 && (
+        <p className="text-gray-600 mb-8">
+          {language === "es" 
+            ? `Mostrando ${itemCount} ${itemCount === 1 ? 'elemento' : 'elementos'}` 
+            : `Showing ${itemCount} ${itemCount === 1 ? 'item' : 'items'}`}
+        </p>
+      )}
       <PortfolioFilters
         activeFilter={activeFilter}
         onFilterChange={onFilterChange}
@@ -194,6 +201,7 @@ const Portfolio = () => {
         <PortfolioHeader
           activeFilter={activeFilter}
           onFilterChange={setActiveFilter}
+          itemCount={filteredItems.length}
         />
 
         {/* Portfolio grid */}
